@@ -1,6 +1,235 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090d1b"><title>Admin — Nusa Pixel</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="admin.css"></head><body class="admin-body"><header class="site-header admin-header"><a class="brand" href="index.html"><img src="assets/nusa-pixel-logo.png" alt=""><span>NUSA<span class="gradient-text">PIXEL</span></span></a><a class="btn btn-ghost" href="index.html">← Lihat Website</a></header><main class="admin-wrap"><section id="loginPanel" class="admin-panel login-panel"><div class="section-kicker">PRIVATE AREA</div><h1>Admin <span class="gradient-text">Nusa Pixel</span></h1><p class="muted">Masuk untuk mengelola konten website dan portofolio.</p><form id="loginForm" class="admin-form"><label>Email</label><input id="loginEmail" type="email" required placeholder="admin@email.com"><label>Password</label><input id="loginPassword" type="password" required placeholder="Password"><button class="btn btn-primary full">Masuk ke Dashboard</button><p id="loginMessage" class="form-message"></p></form></section>
-<section id="dashboard" hidden><div class="admin-top"><div><div class="section-kicker">CONTENT MANAGEMENT</div><h1>Dashboard <span class="gradient-text">Admin</span></h1></div><button id="logoutBtn" class="btn btn-ghost">Keluar</button></div>
-<div class="admin-tabs"><button class="tab-btn active" data-tab="settingsTab">Pengaturan Website</button><button class="tab-btn" data-tab="portfolioTab">Portofolio</button></div>
-<section id="settingsTab" class="admin-panel"><h2>Konten utama</h2><form id="settingsForm" class="admin-form two-inputs"><label>Judul Hero<input id="settingHeroTitle" required></label><label>Subjudul Hero<textarea id="settingHeroSubtitle" rows="3"></textarea></label><label>Tentang Nusa Pixel<textarea id="settingAbout" rows="4"></textarea></label><label>Nomor WhatsApp<input id="settingWhatsapp" placeholder="628xxxxxxxxxx"></label><label>Instagram URL<input id="settingInstagram" placeholder="https://instagram.com/..."></label><label>Email<input id="settingEmail" type="email"></label><button class="btn btn-primary">Simpan Pengaturan</button><p id="settingsMessage" class="form-message"></p></form></section>
-<section id="portfolioTab" class="admin-panel" hidden><h2 id="portfolioFormTitle">Tambah portofolio</h2><form id="portfolioForm" class="admin-form two-inputs"><input id="portfolioId" type="hidden"><label>Nama proyek<input id="portfolioTitle" required placeholder="Contoh: Website Kopi Senja"></label><label>Kategori<input id="portfolioCategory" placeholder="Company Profile"></label><label>Deskripsi<textarea id="portfolioDescription" rows="3"></textarea></label><label>URL gambar / screenshot<input id="portfolioImage" placeholder="https://..."></label><label class="check-label"><input id="portfolioPublished" type="checkbox" checked> Tampilkan di website publik</label><div class="form-actions"><button class="btn btn-primary" type="submit">Simpan Portofolio</button><button class="btn btn-ghost" type="button" id="resetPortfolio">Bersihkan</button></div><p id="portfolioMessage" class="form-message"></p></form><h2 class="list-heading">Daftar portofolio</h2><div id="adminPortfolioList" class="admin-list"></div></section>
-</section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script></body></html>
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090d1b">
+  <title>Admin — Nusa Pixel</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="admin-body">
+
+<header class="site-header admin-header">
+  <a class="brand" href="index.html">
+    <img src="assets/nusa-pixel-logo.png" alt="">
+    <span>NUSA<span class="gradient-text">PIXEL</span></span>
+  </a>
+  <a class="btn btn-ghost" href="index.html">← Lihat Website</a>
+</header>
+
+<main class="admin-wrap">
+
+  <!-- LOGIN -->
+  <section id="loginPanel" class="admin-panel login-panel">
+    <div class="section-kicker">PRIVATE AREA</div>
+
+    <h1>Admin <span class="gradient-text">Nusa Pixel</span></h1>
+
+    <p class="muted">
+      Masuk untuk mengelola konten website dan portofolio.
+    </p>
+
+    <form id="loginForm" class="admin-form">
+
+      <label>Email</label>
+      <input id="loginEmail" type="email"
+        required placeholder="admin@email.com">
+
+      <label>Password</label>
+      <input id="loginPassword" type="password"
+        required placeholder="Password">
+
+      <button class="btn btn-primary full" type="submit">
+        Masuk ke Dashboard
+      </button>
+
+      <button id="forgotPasswordBtn"
+        type="button"
+        class="btn btn-ghost full">
+        Lupa Password?
+      </button>
+
+      <p id="loginMessage" class="form-message"></p>
+    </form>
+  </section>
+
+  <!-- RESET PASSWORD -->
+  <section id="resetPanel"
+    class="admin-panel login-panel" hidden>
+
+    <div class="section-kicker">ACCOUNT RECOVERY</div>
+
+    <h1>Buat <span class="gradient-text">Password Baru</span></h1>
+
+    <p class="muted">
+      Masukkan password baru untuk akun Admin Nusa Pixel.
+    </p>
+
+    <form id="resetPasswordForm" class="admin-form">
+
+      <label>Password Baru</label>
+      <input id="newPassword"
+        type="password"
+        minlength="8"
+        required
+        placeholder="Minimal 8 karakter">
+
+      <label>Konfirmasi Password</label>
+      <input id="confirmPassword"
+        type="password"
+        minlength="8"
+        required
+        placeholder="Ulangi password baru">
+
+      <button class="btn btn-primary full" type="submit">
+        Simpan Password Baru
+      </button>
+
+      <p id="resetMessage" class="form-message"></p>
+
+    </form>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" hidden>
+
+    <div class="admin-top">
+      <div>
+        <div class="section-kicker">CONTENT MANAGEMENT</div>
+        <h1>Dashboard <span class="gradient-text">Admin</span></h1>
+      </div>
+
+      <button id="logoutBtn" class="btn btn-ghost">
+        Keluar
+      </button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="tab-btn active"
+        data-tab="settingsTab">
+        Pengaturan Website
+      </button>
+
+      <button class="tab-btn"
+        data-tab="portfolioTab">
+        Portofolio
+      </button>
+    </div>
+
+    <!-- SETTINGS -->
+    <section id="settingsTab" class="admin-panel">
+
+      <h2>Konten utama</h2>
+
+      <form id="settingsForm"
+        class="admin-form two-inputs">
+
+        <label>Judul Hero
+          <input id="settingHeroTitle" required>
+        </label>
+
+        <label>Subjudul Hero
+          <textarea id="settingHeroSubtitle" rows="3"></textarea>
+        </label>
+
+        <label>Tentang Nusa Pixel
+          <textarea id="settingAbout" rows="4"></textarea>
+        </label>
+
+        <label>Nomor WhatsApp
+          <input id="settingWhatsapp"
+            placeholder="628xxxxxxxxxx">
+        </label>
+
+        <label>Instagram URL
+          <input id="settingInstagram"
+            placeholder="https://instagram.com/...">
+        </label>
+
+        <label>Email
+          <input id="settingEmail" type="email">
+        </label>
+
+        <button class="btn btn-primary">
+          Simpan Pengaturan
+        </button>
+
+        <p id="settingsMessage" class="form-message"></p>
+
+      </form>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolioTab"
+      class="admin-panel" hidden>
+
+      <h2 id="portfolioFormTitle">
+        Tambah portofolio
+      </h2>
+
+      <form id="portfolioForm"
+        class="admin-form two-inputs">
+
+        <input id="portfolioId" type="hidden">
+
+        <label>Nama proyek
+          <input id="portfolioTitle"
+            required
+            placeholder="Contoh: Website Kopi Senja">
+        </label>
+
+        <label>Kategori
+          <input id="portfolioCategory"
+            placeholder="Company Profile">
+        </label>
+
+        <label>Deskripsi
+          <textarea id="portfolioDescription"
+            rows="3"></textarea>
+        </label>
+
+        <label>URL gambar / screenshot
+          <input id="portfolioImage"
+            placeholder="https://...">
+        </label>
+
+        <label class="check-label">
+          <input id="portfolioPublished"
+            type="checkbox" checked>
+          Tampilkan di website publik
+        </label>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">
+            Simpan Portofolio
+          </button>
+
+          <button class="btn btn-ghost"
+            type="button" id="resetPortfolio">
+            Bersihkan
+          </button>
+        </div>
+
+        <p id="portfolioMessage" class="form-message"></p>
+
+      </form>
+
+      <h2 class="list-heading">Daftar portofolio</h2>
+
+      <div id="adminPortfolioList" class="admin-list"></div>
+
+    </section>
+
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
