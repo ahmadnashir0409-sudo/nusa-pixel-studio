@@ -258,3 +258,19 @@
   $("year").textContent = new Date().getFullYear();
   loadContent();
 })();
+
+
+  // Give NUPI a subtle parallax response on desktop pointer movement.
+  const mascotScene = $("mascotScene");
+  const nupiMascot = $("nupiMascot");
+  if (mascotScene && nupiMascot && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    mascotScene.addEventListener("pointermove", (event) => {
+      const bounds = mascotScene.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      nupiMascot.style.transform = `translate3d(${x * 13}px,${y * 10}px,0) rotateY(${x * 7}deg) rotateX(${-y * 5}deg)`;
+    });
+    mascotScene.addEventListener("pointerleave", () => {
+      nupiMascot.style.transform = "";
+    });
+  }
