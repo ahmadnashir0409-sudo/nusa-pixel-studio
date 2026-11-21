@@ -257,8 +257,6 @@
 
   $("year").textContent = new Date().getFullYear();
   loadContent();
-})();
-
 
   // Give NUPI a subtle parallax response on desktop pointer movement.
   const mascotScene = $("mascotScene");
@@ -274,3 +272,5 @@
       nupiMascot.style.transform = "";
     });
   }
+
+})();
