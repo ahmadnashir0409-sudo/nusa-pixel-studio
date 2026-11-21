@@ -1,6 +1,6 @@
 // Isi konfigurasi Supabase dan WhatsApp milik Nusa Pixel sebelum deploy.
 window.NUSA_CONFIG = {
-  SUPABASE_URL: "https://YOUR-PROJECT.supabase.co",
-  SUPABASE_ANON_KEY: "YOUR_SUPABASE_ANON_KEY",
-  WHATSAPP_NUMBER: "628XXXXXXXXXX" // format internasional tanpa +, spasi, atau strip
+  SUPABASE_URL: "sb_publishable_jvKcJGo_bYmIqeQG6lRysQ_Dewm4nJO",
+  SUPABASE_ANON_KEY: "https://hxbxerrluzxmesktavlo.supabase.co/rest/v1/",
+  WHATSAPP_NUMBER: "6285782102726" // format internasional tanpa +, spasi, atau strip
 };
