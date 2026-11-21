@@ -37,10 +37,42 @@
         <div class="hero-actions"><a class="btn btn-primary" href="#order">Mulai Proyek <span>↗</span></a><a class="btn btn-ghost" href="#portfolio">Lihat Portofolio</a></div>
         <div class="hero-note"><span class="note-line"></span> Web & App Development <span class="note-dot">✦</span> Indonesia</div>
       </div>
-      <div class="hero-art">
+      <div class="hero-art mascot-scene" id="mascotScene">
         <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
-        <div class="glass-card card-back"><span class="mini-dot"></span><span class="mini-dot"></span><span class="mini-dot"></span><div class="fake-lines"></div><div class="fake-blocks"><i></i><i></i><i></i></div></div>
-        <div class="logo-stage"><img src="assets/nusa-pixel-logo.png" alt="Logo Nusa Pixel"></div>
+        <div class="mascot-glow"></div>
+        <div class="mascot-stage" id="nupiMascot" role="img" aria-label="NUPI, robot maskot Nusa Pixel">
+          <div class="mascot-spark spark-one">✦</div><div class="mascot-spark spark-two">✧</div>
+          <svg class="nupi-robot" viewBox="0 0 420 440" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="nupiShell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9fbff"/><stop offset=".48" stop-color="#aeb9df"/><stop offset="1" stop-color="#6475a8"/></linearGradient>
+              <linearGradient id="nupiFace" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#202c50"/><stop offset="1" stop-color="#090f24"/></linearGradient>
+              <linearGradient id="nupiAccent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff67c5"/><stop offset=".52" stop-color="#8c6bff"/><stop offset="1" stop-color="#42dcff"/></linearGradient>
+              <filter id="nupiShadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter>
+            </defs>
+            <ellipse cx="210" cy="395" rx="112" ry="17" fill="#050917" opacity=".45" filter="url(#nupiShadow)"/>
+            <path d="M210 58V34" stroke="#a9b8e8" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="210" cy="25" r="13" fill="url(#nupiAccent)"><animate attributeName="opacity" values=".65;1;.65" dur="2s" repeatCount="indefinite"/></circle>
+            <path d="M108 205Q84 217 82 256L73 323Q70 348 96 353L132 344 145 266Z" fill="url(#nupiShell)" stroke="#e9efff" stroke-opacity=".55" stroke-width="3"/>
+            <path d="M312 205Q336 217 338 256L347 323Q350 348 324 353L288 344 275 266Z" fill="url(#nupiShell)" stroke="#e9efff" stroke-opacity=".55" stroke-width="3"/>
+            <rect x="124" y="266" width="172" height="119" rx="48" fill="url(#nupiShell)" stroke="#e8edff" stroke-width="3"/>
+            <path d="M156 304Q210 278 264 304" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="5" stroke-linecap="round"/>
+            <rect x="177" y="327" width="66" height="25" rx="12" fill="#26345a"/>
+            <path d="M189 339h8m8 0h8m8 0h8" stroke="#56dfff" stroke-width="4" stroke-linecap="round"/>
+            <rect x="88" y="92" width="244" height="190" rx="66" fill="url(#nupiShell)" stroke="#f2f5ff" stroke-width="4"/>
+            <rect x="106" y="111" width="208" height="150" rx="52" fill="url(#nupiFace)" stroke="#9caee8" stroke-opacity=".55" stroke-width="2"/>
+            <path d="M135 128Q210 91 285 128" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="5" stroke-linecap="round"/>
+            <g class="nupi-eyes" fill="url(#nupiAccent)"><ellipse cx="158" cy="178" rx="15" ry="22"/><ellipse cx="262" cy="178" rx="15" ry="22"/></g>
+            <path d="M182 216Q210 239 238 216" fill="none" stroke="#61dfff" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="121" cy="190" r="7" fill="#ff72c6" opacity=".8"/><circle cx="299" cy="190" r="7" fill="#ff72c6" opacity=".8"/>
+            <path d="M105 144L81 132M315 144L339 132" stroke="#aebce9" stroke-width="8" stroke-linecap="round"/>
+            <rect x="178" y="73" width="64" height="13" rx="6" fill="url(#nupiAccent)"/>
+            <path d="M147 385L137 405M273 385L283 405" stroke="#aeb9df" stroke-width="14" stroke-linecap="round"/>
+            <rect x="105" y="398" width="65" height="17" rx="8" fill="#6c7eaf"/><rect x="250" y="398" width="65" height="17" rx="8" fill="#6c7eaf"/>
+            <path d="M196 282h28" stroke="url(#nupiAccent)" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <div class="mascot-nameplate"><span class="nameplate-dot"></span><b>NUPI</b><small>YOUR DIGITAL SIDEKICK</small></div>
+        </div>
+        <div class="mascot-caption"><span>HELLO, I'M NUPI</span><b>Let's build something brilliant.</b></div>
         <div class="floating-tag tag-top">✦ Creative solutions</div><div class="floating-tag tag-bottom">WEB DESIGN <b>+</b> DEVELOPMENT</div>
       </div>
     </section>
