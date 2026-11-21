@@ -27,3 +27,30 @@
   .dagboek-sidebar{padding:14px 10px}
   .dagboek-content{padding:13px 12px}
 }
+
+
+/* NUPI — Nusa Pixel's animated brand mascot */
+.mascot-scene{isolation:isolate;perspective:1000px}
+.mascot-glow{position:absolute;width:270px;height:270px;border-radius:50%;background:radial-gradient(circle,#8a62ff55 0%,#e74eaa24 42%,transparent 72%);filter:blur(10px);animation:nupiGlow 4s ease-in-out infinite}
+.mascot-stage{position:relative;z-index:2;width:340px;display:flex;flex-direction:column;align-items:center;animation:nupiFloat 4.8s ease-in-out infinite;transform-style:preserve-3d;transition:transform .25s ease-out}
+.nupi-robot{width:100%;max-height:355px;overflow:visible;filter:drop-shadow(0 24px 24px #03071688)}
+.nupi-eyes{transform-box:fill-box;transform-origin:center;animation:nupiBlink 5s infinite}
+.mascot-nameplate{display:flex;align-items:center;gap:9px;padding:9px 15px;margin-top:-2px;border:1px solid #ffffff35;border-radius:30px;background:#151d37dd;box-shadow:0 8px 28px #0006;backdrop-filter:blur(12px)}
+.mascot-nameplate b{font:700 13px "Space Grotesk";letter-spacing:2px;color:#fff}
+.mascot-nameplate small{font-size:8px;letter-spacing:1.1px;color:#aeb9d5}
+.nameplate-dot{width:7px;height:7px;border-radius:50%;background:#56e7c0;box-shadow:0 0 12px #56e7c0}
+.mascot-spark{position:absolute;color:#65dfff;text-shadow:0 0 15px #65dfff;font-size:27px;animation:nupiSpark 3s ease-in-out infinite}
+.spark-one{top:65px;right:28px}.spark-two{left:26px;top:190px;color:#ff79c8;animation-delay:1.2s}
+.mascot-caption{position:absolute;z-index:3;bottom:8px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;width:max-content;text-align:center;pointer-events:none}
+.mascot-caption span{font-size:9px;letter-spacing:2px;color:#8f9cbd;font-weight:700}
+.mascot-caption b{font:600 12px "Space Grotesk";color:#e7eaff}
+.tag-top{animation:tagBob 4s ease-in-out infinite}
+.tag-bottom{animation:tagBob 4.5s ease-in-out infinite reverse}
+@keyframes nupiFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-13px) rotate(1deg)}}
+@keyframes nupiBlink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.08)}}
+@keyframes nupiGlow{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes nupiSpark{0%,100%{opacity:.25;transform:translateY(0) scale(.8)}50%{opacity:1;transform:translateY(-12px) scale(1.12)}}
+@keyframes tagBob{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@media(max-width:850px){.mascot-stage{width:320px}.nupi-robot{max-height:325px}}
+@media(max-width:620px){.mascot-scene{height:350px;transform:none;margin:0 -20px}.mascot-stage{width:275px}.nupi-robot{max-height:290px}.mascot-caption{bottom:-3px}.spark-one{right:35px}.spark-two{left:35px}}
+@media(prefers-reduced-motion:reduce){.mascot-stage,.mascot-glow,.nupi-eyes,.mascot-spark,.tag-top,.tag-bottom{animation:none!important;transition:none!important}}
